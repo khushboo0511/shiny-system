@@ -1,0 +1,23 @@
+<nav class="bg-gray-900 text-white p-4 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="#" class="text-2xl font-semibold">Khushboo</a>
+      <div class="hidden md:flex space-x-6">
+        <li routerLink="/todos" class="hover:text-gray-400">Home</li>
+        <a href="#about" class="hover:text-gray-400">About</a>
+        <a href="#projects" class="hover:text-gray-400">Projects</a>
+        <a href="#contact" class="hover:text-gray-400">Contact</a>
+      </div>
+      <button (click)="toggleMenu()" class="md:hidden text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    <div [ngClass]="{'block': menuOpen, 'hidden': !menuOpen}" class="md:hidden">
+      <a href="/todos" class="block p-2 text-gray-300 hover:bg-gray-700">Home</a>
+      <a href="#about" class="block p-2 text-gray-300 hover:bg-gray-700">About</a>
+      <a href="#projects" class="block p-2 text-gray-300 hover:bg-gray-700">Projects</a>
+      <a href="#contact" class="block p-2 text-gray-300 hover:bg-gray-700">Contact</a>
+    </div>
+  </nav>
+  

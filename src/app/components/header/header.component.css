@@ -1,0 +1,10 @@
+nav {
+    background-color: #1f2937;
+  }
+  a {
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #9ca3af;
+  }
+  

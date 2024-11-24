@@ -1,0 +1,12 @@
+<p>todos works!</p>
+
+<p *ngIf="!todoItems().length">Loading....</p>
+
+@if (!todoItems.length) {
+    <p>Your data is loading. Please wait</p>
+}
+<p class="font-light bg-pink-400 text-blue-700"> {{yourMessage}} </p>
+@for (todo of todoItems(); track todo.id) {
+    <input id="todo-{{todo.id}}" type="checkbox" [value]="todo.completed" />
+    <label for="todo-{{todo.id}}">{{todo.title}}</label>
+}
