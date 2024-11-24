@@ -1,12 +1,31 @@
 <p>todos works!</p>
 
+// built in directives
+
 <p *ngIf="!todoItems().length">Loading....</p>
 
 @if (!todoItems.length) {
     <p>Your data is loading. Please wait</p>
 }
 <p class="font-light bg-pink-400 text-blue-700"> {{yourMessage}} </p>
-@for (todo of todoItems(); track todo.id) {
+@for (todo of todoItems().slice(0, 15); track todo.id) {
+    <div class=" flex justify-center">
+    <li>
     <input id="todo-{{todo.id}}" type="checkbox" [value]="todo.completed" />
     <label for="todo-{{todo.id}}">{{todo.title}}</label>
+</li></div>
 }
+
+<div>
+    <span>Filter Todos</span>
+    <input name="searchTerm" [(ngModel) ] = "searchTerm" placeholder="Search in Todos..." class="border-black"  />
+</div>
+
+
+<ul class="todos">
+    @for (todo of todoItems() | filterTodos: searchTerm; track todo.id ) {
+        <app-todos-component 
+        (todoToggled)="updateTodoItem($event)"
+        [todo]="todo" />
+    }
+</ul>
